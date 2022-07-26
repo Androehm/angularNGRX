@@ -16,8 +16,6 @@ export class LaureateEffects {
     private readonly actions$: Actions,
     private readonly service: LaureateService
   ) {}
-  // switchMap(()=> of(this.service.getLaureates)), switchMap(()=> of(this.service.getLaureates)),
-
   public readonly loadLaureates$: Observable<any> = createEffect(() => {
     return this.actions$.pipe(
       ofType(LaureateActionNames.LoadLaureates),
