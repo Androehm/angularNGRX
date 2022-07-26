@@ -1,7 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { initialLaureateState } from './app.state';
 import * as laureateActions from './app.actions';
-import { state } from '@angular/animations';
 
 export const laureatesReducer = createReducer(
   initialLaureateState,

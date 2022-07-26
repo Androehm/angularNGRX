@@ -1,4 +1,3 @@
-import { State } from '@ngrx/store';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { FEATURE_KEY, LaureateState } from './app.state';
 

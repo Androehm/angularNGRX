@@ -1,16 +1,11 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Action } from '@ngrx/store';
-import { catchError, concatMap, map, Observable, of, switchMap } from 'rxjs';
+import { catchError, concatMap, map, Observable, of } from 'rxjs';
 import { LaureateActionNames } from './app.actions';
 import { LaureateService } from './app.service';
-import { Laureates } from './app.state';
 import * as laureateActions from './app.actions';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class LaureateEffects {
   constructor(
     private readonly actions$: Actions,
