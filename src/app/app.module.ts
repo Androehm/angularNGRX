@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { FEATURE_KEY } from './app.state';
 import { laureatesReducer } from './app.reducer';
+import { LaureateService } from './app.service';
 
 @NgModule({
   imports: [
@@ -20,15 +21,15 @@ import { laureatesReducer } from './app.reducer';
     FormsModule,
     HttpClientModule,
     EffectsRootModule,
-    StoreDevtoolsModule.instrument({ maxAge: 5 }),
     StoreModule.forRoot({}),
-    StoreModule.forFeature(FEATURE_KEY, laureatesReducer),
-    EffectsModule.forFeature([LaureateEffects]),
+    StoreModule.forRoot(laureatesReducer),
+    EffectsModule.forRoot([LaureateEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 5 }),
     MatCardModule,
     MatListModule,
   ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent],
-  providers: [InjectionToken, LaureateFacade, EffectSources],
+  providers: [LaureateFacade, LaureateService],
 })
 export class AppModule {}
