@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Laureates, LaureateState } from './app.state';
+import { LaureateState } from './app.state';
 import * as laureateSelectors from './app.selector';
 import * as laureateActions from './app.actions';
 
 @Injectable()
 export class LaureateFacade {
-  public readonly getlaureates$: Observable<Laureates[]> = this.store.pipe(
+  public readonly getlaureates$: Observable<LaureateState> = this.store.pipe(
     select(laureateSelectors.getAllLaureates)
   );
 

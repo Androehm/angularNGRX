@@ -1,19 +1,13 @@
 export const FEATURE_KEY = 'laureates';
 
 export interface LaureateState {
-  laureates: Laureates[];
+  laureates: [];
+  link: {};
+  meta: {};
 }
 
 export const initialLaureateState: LaureateState = {
   laureates: [],
+  link: {},
+  meta: {},
 };
-export interface Laureates {
-  fullName?: {
-    en: string;
-    se: string;
-  };
-  gender?: string;
-  wikipedia?: {
-    english: string;
-  };
-}

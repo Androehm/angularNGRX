@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { LaureateService } from './app.service';
 import { getAllLaureates } from './app.selector';
 import { LaureateFacade } from './app.facade';
-import { Laureates } from './app.state';
+import { LaureateState } from './app.state';
+import { take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'my-app',
@@ -12,12 +13,18 @@ import { Laureates } from './app.state';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  laureates$: Observable<Laureates[]>;
+  laureates$: Observable<LaureateState>;
 
   constructor(private readonly laureateFacade: LaureateFacade) {}
 
   ngOnInit() {
     this.laureateFacade.loadLaureates();
-    console.log(this.laureates$);
+
+    this.laureateFacade.getlaureates$
+      .pipe(
+        tap((data) => console.log(data)),
+        take(1)
+      )
+      .subscribe();
   }
 }
